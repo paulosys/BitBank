@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Correntistas</title>
+</head>
+<body>
+    <h1>Listagem de Correntistas</h1>
+    <div th:text="${message}" style="color: red"></div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Admin</th>
+                <th>Senha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="customer: ${customers}">
+                <td>[[${customer.id}]]</td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.admin}"></td>
+                <td th:text="${#strings.substring(customer.password,0,3)} + '...'"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

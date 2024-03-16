@@ -16,5 +16,5 @@ public class Customer implements Serializable {
 
     private String password;
 
-    private boolean isAdmin;
+    private boolean admin;
 }
