@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Correntistas</title>
+</head>
+<body>
+    <h1>Listagem de Correntistas</h1>
+
+    <form th:action="@{/customers/form}" method="GET">
+        <button type="submit">Novo</button>
+    </form>
+
+    <div th:text="${message}" style="color: red"></div>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Número</th>
+            <th>Correntista</th>
+            <th style="text-align: center;">Data abertura</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${accounts}">
+            <td><a th:href="@{/accounts/{id}(id=${account.id})}" th:text="${account.number}"></a></td>
+            <td><a th:text="${account.customer.name}"></a></td>
+            <td th:text="${#dates.format(account.date, 'dd/MM/yyyy')}" style="text-align: center;"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

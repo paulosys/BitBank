@@ -13,11 +13,12 @@ public class CustomerRepository {
         return repository.get(id);
     }
 
-    public void save(Customer customer) {
+    public Customer save(Customer customer) {
         Integer id;
         id = (customer.getId() == null) ? this.getMaxId() + 1 : customer.getId();
         customer.setId(id);
         repository.put(id, customer);
+        return customer;
     }
 
     public List<Customer> findAll() {

@@ -22,6 +22,10 @@ public class Account implements Serializable {
 
     private Customer customer;
 
+    public Account(Customer customer){
+        this.customer = customer;
+    }
+
     public BigDecimal getBalance() {
         BigDecimal total = BigDecimal.ZERO;
         for (Transaction t : this.transactions) {
